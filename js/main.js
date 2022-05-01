@@ -1,6 +1,18 @@
-var canvas = document.getElementById("canvas")
-var ctx = canvas.getContext("2d")
+var canvas = document.getElementById("main-canvas");
+var ctx = canvas.getContext("2d");
 
-ctx.fill.Text("hello world", 10, 20)
+var playerY = 300;
 
-ctx.strokeRect(10,50,100,100)
+ctx.fillText("Hello World",20,20);
+
+function jump(){
+    ctx.strokeRect(10,playerY,100,100);
+    window.requestAnimationFrame(jump);
+}
+
+window.onkeydown = (e) => playerY-=10;
+
+window.requestAnimationFrame(jump);
+
+
+document.title = "JumpJump" ;
